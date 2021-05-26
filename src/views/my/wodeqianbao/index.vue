@@ -1,98 +1,117 @@
 <template>
   <div class="qa-container">
-      <!-- //状态栏 -->
-    <div class="van-toplan">
-      <van-icon
-        class="van-fanhui"
-        color="#000"
-        size="25px"
-        slot="left"
-        name="arrow-left"
-        @click="$router.back()"
-      />
-      <div>我的钱包</div>
-    </div>
-    <!-- 钱包详细页面 -->
-    
-    <div>
-<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
-  <div class="van-qianbao">
-    <div>
-      <span>我的钱包</span>
-      <span>80.00</span>
-    </div>
-    <div>
-      <span>我的银行卡</span>
-      <span>1 张</span>
-    </div>
-    <button>我要提现</button>
-  </div>
+    <div class="space-upper">
+      <!-- 导航栏 -->
+    <van-nav-bar
+      class="page-nav-bar"
+      title="我的钱包"
+      left-arrow
+      @click-left="$router.back()"
+    />
+      <!-- 钱包详细页面 -->
 
-
-</van-pull-refresh>
+      <div class="van-qianbao">
+        <div class="wallet-image">
+          <img src="../../../assets/wallet.png">
+        </div>
+        <div>
+          <div class="wallet-account">
+            <div class="wallet-account_balance">
+              0.00
+            </div>
+          </div>
+          <div>
+            <div class="wallet-account_lable">
+              账户余额(元)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="van-chongzhi">
+      <div class="annian">
+        <van-button round type="info" size="large" color="#786cff" @click="onTargetRecharge()">充 值</van-button>
+      </div>
+      <div class="van-text">
+      <span class="lable-text" @click="onTargetRechargeOrder()">充值记录</span>
+      <span class="lable-text" @click="onTargetBalanceLog()">账单详情</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-
-import { Toast } from 'vant';
+// import { Toast } from 'vant';
 
 export default {
   name: "QianBao",
   components: {},
   props: {},
   data() {
-    return { 
-      count: 0,
-      isLoading: false,
-    };
+    return {};
   },
   computed: {},
   watch: {},
   created() {},
   mounted() {},
   methods: {
-    onRefresh() {
-      setTimeout(() => {
-        Toast('刷新成功');
-        this.isLoading = false;
-        this.count++;
-      }, 1000);
+    // 跳转到充值中心
+    onTargetRecharge () {
+      this.$router.push("/chongzhi")
     },
+
+  // 跳转到查看记录
+  onTargetRechargeOrder () {
+   this.$router.push("/jilv")
+  },
+
+  // 跳转到账单详细
+  onTargetBalanceLog () {
+    this.$router.push("/zhangdan")
+  }
   }
 };
 </script>
 
 <style scoped lang="less">
 .qa-container {
-  .van-toplan {
-    position: static;
-    width: 100%;
-    height: 90px;
-    background-color: #fff;
+  // background: #fff;
+  .space-upper {
+    padding: 150rpx 0;
     text-align: center;
-    div {
-      font-size: 35px;
-    //   width: 100%;
-    //   height: 90px;
-      line-height: 90px;
-      // margin: 0 auto;
-    }
+  } 
+  
+  .wallet-image img {
+    width: 300px;
+    margin-top: 100px;
   }
-  .van-fanhui {
-    // margin-left: 60px;
-    position: absolute;
-    left: 10px;
-    top: 20px;
-  }
-  .van-qianbao {
-    width: 80%;
-    height: 400px;
-    margin: 0 auto;
-    background-color: #222;
+  .wallet-account {
     margin-top: 30px;
-    border-radius: 30px;
+  }
+  .wallet-account_balance {
+    font-size: 50px;
+  }
+
+  .wallet-account_lable {
+    margin-top: 20px;
+    color: #cec1c1;
+    font-size: 24px;
+  }
+  .annian {
+    width: 60%;
+    padding-left: 150px;
+    margin-top: 120px;
+  }
+  .lable-text {
+    font-size: 23px;
+    color: rgb(94, 94, 94);
+    padding: 0 60px;
+  }
+  .van-chongzhi {
+    text-align: center;
+  }
+  .van-text {
+    margin-top: 30px;
   }
 }
 </style>

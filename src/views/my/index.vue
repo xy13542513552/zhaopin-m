@@ -13,17 +13,19 @@
           <span class="name">{{ userInfo.name }}</span>
         </div>
         <div class="right">
-          <van-button size="mini" round>编辑资料</van-button>
+          <div @click="$router.push('/user-for')">
+            <img class="mobile-img" src="~@/assets/shezhi.png" alt="">
+          </div>
         </div>
       </div>
       <div class="data-stats">
         <div class="data-item">
           <span class="count">{{ userInfo.art_count }}</span>
-          <span class="text">关注</span>
+          <span class="text">沟通过</span>
         </div>
         <div class="data-item">
           <span class="count">{{ userInfo.follow_count }}</span>
-          <span class="text">粉丝</span>
+          <span class="text">关注的人</span>
         </div>
       </div>
     </div>
@@ -164,7 +166,7 @@ export default {
   // background-color: #222;
   .header {
     height: 361px;
-    background: url("~@/assets/banner.png");
+    background: url("~@/assets/banner.png")no-repeat center 0px;
     background-size: cover;
   }
 
@@ -184,7 +186,7 @@ export default {
       }
       .text {
         font-size: 28px;
-        color: #fff;
+        color: #646566;
       }
     }
   }
@@ -208,7 +210,7 @@ export default {
         }
         .name {
           font-size: 30px;
-          color: #fff;
+          color: #646566;
         }
       }
     }
@@ -221,7 +223,7 @@ export default {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        color: #fff;
+        color: #646566;
         .count {
           font-size: 36px;
         }
@@ -263,16 +265,16 @@ export default {
   .navigation-van {
     width: 98%;
     margin: 0 auto;
-    margin-top: -23px;
+    margin-top: 20px;
     border-radius: 40px;
     height:378px;
     overflow: hidden;
-    box-shadow: 3px 3px rgba(17, 3, 3, 0.102);
+    // box-shadow: 3px 3px rgba(17, 3, 3, 0.102);
   }
   .tool-box {
     width: 98%;
     margin: 0 auto;
-    box-shadow: 3px 3px rgba(17, 3, 3, 0.102);
+    // box-shadow: 3px 3px rgba(17, 3, 3, 0.102);
     margin-top: 20px;
     border-radius: 40px;
     overflow: hidden;
@@ -282,6 +284,15 @@ export default {
   }
   .fenge-xiang {
     height: 0.8px;
+  }
+  .right {
+    width: 35px;
+    height: 35px;
+    padding-right: 30px;
+    padding-bottom: 180px;
+    img {
+      width: 100%;
+    }
   }
 }
 </style>

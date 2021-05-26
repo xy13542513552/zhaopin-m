@@ -76,6 +76,31 @@ const routes = [
     component:()=>import('../views/my/chakangengduo')
   },
   {
+    path:'/chongzhi',
+    name:'chongzhi',
+    component:()=>import('../views/my/wodeqianbao/chongzhi/index')
+  },
+  {
+    path:'/jilv',
+    name:'jilv',
+    component:()=>import('../views/my/wodeqianbao/jilv/index')
+  },
+  {
+    path:'/zhangdan',
+    name:'zhangdan',
+    component:()=>import('../views/my/wodeqianbao/zhangdan/index')
+  },
+  {
+    path:'/xianyi',
+    name:'xianyi',
+    component:()=>import('../views/login/xianyi/index')
+  },
+  {
+    path: '/user-for',
+    name: 'user-for',
+    component: () => import('@/views/user-for')
+  },
+  {
     path:'/look',
     name:'look',
     meta:{

@@ -1,30 +1,34 @@
 <template>
-  <div class="gywm-container">
-      <!-- 导航栏 -->
+  <div class="xx-container">
+     <!-- 导航栏 -->
     <van-nav-bar
       class="page-nav-bar"
-      title="关于我们"
+      title="个人信息"
       left-arrow
       @click-left="$router.back()"
     />
-    
   </div>
 </template>
 
 <script>
 export default {
-  name: "WoMeng",
+  name: 'XxIndex',
   components: {},
   props: {},
-  data() {
-    return {};
+  data () {
+    return {
+
+    };
   },
   computed: {},
   watch: {},
-  created() {},
-  mounted() {},
-  methods: {}
-};
+  created () { },
+  mounted () { },
+  methods: {
+
+  }
+}
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+</style>

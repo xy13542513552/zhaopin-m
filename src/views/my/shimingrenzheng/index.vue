@@ -1,17 +1,12 @@
 <template>
   <div class="smrz-container">
-      <!-- //状态栏 -->
-    <div class="van-toplan">
-      <van-icon
-        class="van-fanhui"
-        color="#000"
-        size="25px"
-        slot="left"
-        name="arrow-left"
-        @click="$router.back()"
-      />
-      <div>实名认证</div>
-    </div>
+      <!-- 导航栏 -->
+    <van-nav-bar
+      class="page-nav-bar"
+      title="实名认证"
+      left-arrow
+      @click-left="$router.back()"
+    />
     <!-- 实名认证详细页面 -->
     <div>
     <div class="van-usersfz">身份证照片(个人信息面)</div>
@@ -76,31 +71,13 @@ export default {
   created() {},
   mounted() {},
   methods: {
+    
   }
 };
 </script>
 
 <style scoped lang="less">
 .smrz-container {
-  .van-toplan {
-    position: static;
-    width: 100%;
-    height: 90px;
-    background-color: #fff;
-    text-align: center;
-    div {
-      font-size: 35px;
-    //   width: 100%;
-    //   height: 90px;
-      line-height: 90px;
-      // margin: 0 auto;
-    }
-  }
-  .van-fanhui {
-    position: absolute;
-    left: 10px;
-    top: 20px;
-  }
   .van-usersfz {
       margin-top: 40px;
       margin-left: 20px;

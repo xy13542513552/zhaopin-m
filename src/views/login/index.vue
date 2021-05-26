@@ -21,7 +21,6 @@
     <!--
       表单验证：
         1、给 van-field 组件配置 rules 验证规则
-          参考文档：https://youzan.github.io/vant/#/zh-CN/form#rule-shu-ju-jie-gou
         2、当表单提交的时候会自动触发表单验证
            如果验证通过，会触发 submit 事件
            如果验证失败，不会触发 submit //
@@ -67,7 +66,7 @@
           >发送验证码</van-button>
         </template>
       </van-field>
-      <van-checkbox class="van-bottom" v-model="checked" icon-size="12px">我已阅读招聘平台服务协议</van-checkbox>
+      <van-checkbox class="van-bottom" v-model="checked" icon-size="12px">我已阅读<u @click="xianyi" v-model="qdxy">《招聘平台服务协议》</u></van-checkbox>
       <div class="login-btn-wrap">
         <van-button class="login-btn" block type="info" native-type="submit">登录</van-button>
       </div>
@@ -81,10 +80,16 @@
           <img src="../../assets/weixin.png" alt>
         </div>
       </div>
+      <van-popup v-model="qdxy" round position="bottom" :style="{ height: '70%' }" >
+        <div class="qdxy-tab">招聘平台服务协议</div>
+         </van-popup>
     </van-form>
     <!-- /登录表单 -->
   </div>
+
+ 
 </template>
+
 
 <script>
 import { login, sendSms } from "@/api/user";
@@ -96,10 +101,11 @@ export default {
   props: {},
   data() {
     return {
+      qdxy:false,
       checked: false,
       user: {
-        mobile: "13342513552", // 手机号
-        code: "123321" // 验证码
+        mobile: "13911111111", // 手机号
+        code: "246810" // 验证码
       },
       userFormRules: {
         mobile: [
@@ -190,6 +196,9 @@ export default {
       }).then(() => {
         // on close
       });
+    },
+    xianyi() {
+      this.qdxy = true;
     }
   }
 };
@@ -263,6 +272,12 @@ export default {
       width: 100%;
       height: 100%;
     }
+  }
+  .qdxy-tab {
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
   }
 }
 </style>
