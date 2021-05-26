@@ -13,12 +13,17 @@ const routes = [
   {
     path: '/jobseeker',
     name:'jobseeker',
-    component: () => import('../views/issue/jobseeker.vue'),
+    component: () => import('../views/home/issue/jobseeker.vue'),
+  },
+  {
+    path:'/particulars',
+    name:"particulars",
+    component:()=>import('../views/home/particulars/index.vue'),
   },
   {
     path: '/recruitment',
     name:'recruitment',
-    component: () => import('../views/issue/recruitment.vue'),
+    component: () => import('../views/home/issue/recruitment.vue'),
   },
   {
     path:'/picture0',
@@ -102,6 +107,11 @@ const routes = [
       tx:1,
     },
     component:()=>import('../views/look/index.vue')
+  },
+  {
+    path:'/searCh',
+    name:'searCh',
+    component:()=>import('../views/home/search.vue')
   },
   {
     path: '/',
