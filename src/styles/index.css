@@ -76,12 +76,12 @@
   content: "\e607";
 }
 body {
-  background-color: #f5f7f9;
+  background-color: #fafafa;
 }
 .page-nav-bar {
-  background-color: #3296fa;
+  background-color: #f5f7f9;
 }
 .page-nav-bar .van-nav-bar__title,
 .page-nav-bar .van-icon {
-  color: #fff;
+  color: #646566;
 }
