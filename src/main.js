@@ -37,6 +37,11 @@ Vue.use(Vant)
 
 Vue.config.productionTip = false
 
+//路由跳转后自动回到顶部
+router.afterEach(() => {
+  window.scrollTo(0,0);
+})
+
 new Vue({
   router,
   store,
