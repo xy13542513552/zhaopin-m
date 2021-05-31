@@ -2,20 +2,21 @@
   <div id="app">
     <!-- 路由的出口 -->
     <transition :name="SkipSwitchName">
-      <router-view class="router-view"> </router-view>
+      <router-view class="router-view"></router-view>
     </transition>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  data () {
+  name: "App",
+  data() {
     return {
       SkipSwitchName: ""
     };
   },
   watch: {
+<<<<<<< HEAD
     $route (to, from) {
       if (to.meta.tx < from.meta.tx) {
         this.SkipSwitchName = 'Skleft'
@@ -27,9 +28,19 @@ export default {
       }
     }
 
+=======
+    // $route (to, from) {
+    //   if (to.meta.tx < from.meta.tx) {
+    //     this.SkipSwitchName = 'Skleft'
+    //   } else {
+    //     this.SkipSwitchName = 'Skright'
+    //   }
+    // }
+>>>>>>> 790b552dc8b90bbe6435952bb58f7cc9b0653ca3
   }
-}
+};
 </script>
+
 
 <style lang="less">
 .Skleft-enter-active {
