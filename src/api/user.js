@@ -46,7 +46,12 @@ export const getUserChannele = () => {
    url: '/sys/commodity?userId=3 '
  })
 }
-
+export const getHomeList = () => {
+  return request({
+    method: 'GET',
+    url: 'parttime-backstage/sort/list '
+  })
+ }
 // 获取招聘列表数据
 // export const getArticles = params => {
 //   return request({

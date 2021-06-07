@@ -2,7 +2,7 @@
   <div>
     <div class="jishu">
       <van-nav-bar
-        class="jishu_bar"
+        class="page-nav-bar"
         fixed
         placeholder
         @click-left="onClickLeft"
@@ -38,16 +38,24 @@ export default {
       loading: false,
       finished: false,
       refreshing: false,
+      error: false,
     }
   },
   components: {
     JobList
+  },
+  mounted () {
+    // console.log(JobList)
+    // console.log(this.$route.params.id)
   },
   methods: {
     onClickLeft () {
       this.$router.back()
     },
     onLoad () {
+      // fetchSomeThing().catch(() => {
+      //   this.error = true;
+      // });
       setTimeout(() => {
         if (this.refreshing) {
           this.list = [];
@@ -63,6 +71,7 @@ export default {
           this.finished = true;
         }
       }, 1000);
+
     },
     onRefresh () {
       // 清空列表数据

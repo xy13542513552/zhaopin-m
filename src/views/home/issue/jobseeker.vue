@@ -1,6 +1,6 @@
 <template>
   <div class="recruitment">
-    <van-nav-bar class="job" @click-left="onClickLeft">
+    <van-nav-bar class="page-nav-bar" @click-left="onClickLeft">
       <van-icon color="#000" slot="left" name="arrow-left" />
     </van-nav-bar>
     <div class="head">
@@ -182,6 +182,8 @@ export default {
 
       weixin: ""
     };
+  },
+  mounted () {
   },
   methods: {
     onClickLeft () {

@@ -1,6 +1,10 @@
 <template>
   <div class="recruitment">
+<<<<<<< HEAD
     <!-- <van-nav-bar class="job" @click-left="onClickLeft">
+=======
+    <van-nav-bar class="page-nav-bar" @click-left="onClickLeft">
+>>>>>>> d0240b3f2386783bd29cc77b6456779443624408
       <van-icon color="#000" slot="left" name="arrow-left" />
     </van-nav-bar> -->
     
@@ -85,6 +89,8 @@ export default {
       active: 0,
       fileList: [],
     };
+  },
+  mounted () {
   },
   methods: {
     onClickLeft () {

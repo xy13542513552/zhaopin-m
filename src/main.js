@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import axios from "axios";
 // import { Lazyload } from 'vant';
 
 // 加载 Vant 核心组件库
@@ -36,6 +37,13 @@ Vue.use(Vant)
 // });
 
 Vue.config.productionTip = false
+
+Vue.prototype.$axios = axios;
+
+//路由跳转后自动回到顶部
+router.afterEach(() => {
+  window.scrollTo(0,0);
+})
 
 new Vue({
   router,
