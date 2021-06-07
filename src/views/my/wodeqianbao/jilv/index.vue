@@ -2,6 +2,7 @@
   <div class="jl-container">
     <!-- 导航栏 -->
     <van-nav-bar
+      border="falsa"
       class="page-nav-bar"
       title="充值记录"
       left-arrow

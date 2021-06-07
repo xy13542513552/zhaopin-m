@@ -4,17 +4,12 @@
     <div v-if="user" class="header user-info">
       <div class="base-info">
         <div class="left">
-          <van-image
-            class="avatar"
-            :src="userInfo.photo"
-            round
-            fit="cover"
-          />
+          <van-image class="avatar" :src="userInfo.photo" round fit="cover"/>
           <span class="name">{{ userInfo.name }}</span>
         </div>
         <div class="right">
           <div @click="$router.push('/user-for')">
-            <img class="mobile-img" src="~@/assets/shezhi.png" alt="">
+            <img class="mobile-img" src="~@/assets/shezhi.png" alt>
           </div>
         </div>
       </div>
@@ -34,139 +29,144 @@
     <!-- 未登录头部 -->
     <div v-else class="header not-login">
       <div class="login-btn" @click="$router.push('/login')">
-        <img class="mobile-img" src="~@/assets/mobile.png" alt="">
+        <img class="mobile-img" src="~@/assets/mobile.png" alt>
         <span class="text">登录 / 注册</span>
       </div>
     </div>
     <!-- /未登录头部 -->
 
     <!-- 宫格导航 -->
-  <div class="navigation-van">
-        <van-grid class="grid-nav mb-9" :column-num="2" clickable :border="false">
-      <van-grid-item class="grid-item" border:false>
-        <i slot="icon" class="toutiao toutiao-shoucang"></i>
-        <span slot="text" class="text">我的发布</span>
-      </van-grid-item>
-      <van-grid-item class="grid-item">
-        <i slot="icon" class="toutiao toutiao-lishi"></i>
-        <span slot="text" class="text">我的收藏</span>
-      </van-grid-item>
-    </van-grid>
-          <div class="fenge-xiang">1</div>
-    <van-cell title="我的订单" value="查看全部" is-link style="margin-bottom:10px"/>
-      <van-grid square :column-num="5" :border="false" :clickable="true" class="van-grid-dingdan">
+    <div class="navigation-van">
+      <van-grid class="grid-nav mb-9" :column-num="2" clickable :border="false">
+        <van-grid-item class="grid-item" border:false>
+          <i slot="icon" class="toutiao toutiao-shoucang"></i>
+          <span slot="text" class="text">我的发布</span>
+        </van-grid-item>
+        <van-grid-item class="grid-item">
+          <i slot="icon" class="toutiao toutiao-lishi"></i>
+          <span slot="text" class="text">我的收藏</span>
+        </van-grid-item>
+      </van-grid>
+      <div class="fenge-xiang">1</div>
+      <van-cell title="我的订单"/>
+      <van-grid square :column-num="4" :border="false" :clickable="true" class="van-grid-dingdan">
         <van-grid-item
-          v-for="value in grids"
-          :key="value"
-          :icon="value.icon"
-          :text="value.text"
+          v-for="index in grids"
+          :key="index"
+          :icon="index.icon"
+          :text="index.text"
+          @click="onTargetOrder(index)"
         />
+        <!-- @click="$router.push('/dingdan')" -->
       </van-grid>
     </div>
 
     <div class="tool-box">
-      <van-cell title="工具与服务" value="查看更多" is-link  :border="false" @click="$router.push('/chakangengduo')" />
-      <div class="fenge-xiang">1</div>
-      <van-grid class="color-tool" clickable :column-num="4" :border="false" >
-  <van-grid-item icon="user-o" text="客服服务" @click="showKefu" v-model="show" />
-  <van-grid-item icon="paid" text="我的钱包" @click="$router.push('/wodeqianbao')" />
-  <van-grid-item icon="coupon-o" text="实名认证" @click="$router.push('/shimingrenzheng')" />
-  <van-grid-item icon="smile" text="关于我们" @click="$router.push('/guanyuwomen')" />
-</van-grid>
+      <van-cell title="工具与服务" :border="false"/>
+      <!-- <div class="fenge-xiang">1</div> -->
+      <van-grid class="color-tool" clickable :column-num="4" :border="false">
+        <van-grid-item icon="user-o" text="客服服务" @click="showKefu" v-model="show"/>
+        <van-grid-item icon="paid" text="我的钱包" @click="$router.push('/wodeqianbao')"/>
+        <van-grid-item icon="coupon-o" text="实名认证" @click="$router.push('/shimingrenzheng')"/>
+        <van-grid-item icon="smile" text="关于我们" @click="$router.push('/guanyuwomen')"/>
+      </van-grid>
     </div>
 
     <!-- <van-cell title="消息通知" is-link />
     <van-cell title="实名认证" is-link />
-    <van-cell  title="客服电话" is-link /> -->
-    <van-cell
-      v-if="user"
-      class="logout-cell"
-      clickable
-      title="退出登录"
-      @click="onLogout"
-    />
+    <van-cell  title="客服电话" is-link />-->
+    <van-cell v-if="user" class="logout-cell" clickable title="退出登录" @click="onLogout"/>
     <!-- <van-action-sheet v-model="show" :actions="actions" @select="onLook" /> -->
     <van-popup v-model="show" round position="bottom" :style="{ height: '20%' }">
-      <van-divider
-  :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }"
->
-  招聘客服电话
-</van-divider>
-      <van-divider>040-88888-101 <button> 电话</button></van-divider>
+      <van-divider :style="{ color: '#1989fa', borderColor: '#1989fa', padding: '0 16px' }">招聘客服电话</van-divider>
+      <van-divider>
+        040-88888-101
+        <button>电话</button>
+      </van-divider>
     </van-popup>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { getUserInfo } from '@/api/user'
+import { mapState } from "vuex";
+import { getUserInfo } from "@/api/user";
 
 export default {
-  name: 'MyIndex',
+  name: "MyIndex",
   components: {},
   props: {},
-  data () {
+  data() {
     return {
       show: false,
       grids: [
-        { icon: 'peer-pay', text: ' 全部订单' },
-        { icon: 'cash-back-record', text: '待付款' },
-        { icon: 'after-sale', text: '已付款' },
-        { icon: 'certificate', text: '评论' },
-        { icon: 'certificate', text: '已完成' }
+        { id: "1", icon: "peer-pay", text: " 全部订单" },
+        { id: "2", icon: "cash-back-record", text: "定金", count: 0 },
+        { id: "3", icon: "after-sale", text: "待付款", count: 0 },
+        { id: "4", icon: "certificate", text: "已完成", count: 0 }
       ],
       userInfo: {} // 用户信息
-    }
+    };
   },
   computed: {
-    ...mapState(['user'])
+    ...mapState(["user"])
   },
   watch: {},
-  created () {
+  created() {
     // 如果用户登录了，则请求加载用户信息数据
     if (this.user) {
-      this.loadUserInfo()
+      this.loadUserInfo();
     }
   },
-  mounted () {},
+  mounted() {},
   methods: {
-    onLogout () {
+    onLogout() {
       // 退出提示
       // 在组件中需要使用 this.$dialog 来调用弹框组件
-      this.$dialog.confirm({
-        title: '确认退出吗？'
-      }).then(() => {
-        // on confirm
-        // 确认退出：清除登录状态（容器中的 user + 本地存储中的 user）
-        this.$store.commit('setUser', null)
-      }).catch(() => {
-        // on cancel
-        console.log('取消执行这里')
-      })
+      this.$dialog
+        .confirm({
+          title: "确认退出吗？"
+        })
+        .then(() => {
+          // on confirm
+          // 确认退出：清除登录状态（容器中的 user + 本地存储中的 user）
+          this.$store.commit("setUser", null);
+        })
+        .catch(() => {
+          // on cancel
+          console.log("取消执行这里");
+        });
     },
 
-    async loadUserInfo () {
+    async loadUserInfo() {
       try {
-        const { data } = await getUserInfo()
-        this.userInfo = data.data
+        const { data } = await getUserInfo();
+        this.userInfo = data.data;
       } catch (err) {
-        this.$toast('获取数据失败，请稍后重试')
+        this.$toast("获取数据失败，请稍后重试");
       }
     },
     showKefu() {
       this.show = true;
-      
     },
+    // 跳转到订单页
+    onTargetOrder(index) {
+      // console.log(index.id);
+
+      this.$router.push({
+        // path:'/dingdan?index=' + index,
+        path: `/dingdan/${index.id}`
+      });
+    }
   }
-}
+};
 </script>
 
 <style scoped lang="less">
-.my-container { 
+.my-container {
   // background-color: #222;
   .header {
     height: 361px;
-    background: url("~@/assets/banner.png")no-repeat center 0px;
+    background: url("~@/assets/banner.png") no-repeat center 0px;
     background-size: cover;
   }
 
@@ -267,7 +267,7 @@ export default {
     margin: 0 auto;
     margin-top: 20px;
     border-radius: 40px;
-    height:378px;
+    height: 378px;
     overflow: hidden;
     // box-shadow: 3px 3px rgba(17, 3, 3, 0.102);
   }

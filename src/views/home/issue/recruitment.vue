@@ -1,8 +1,15 @@
 <template>
   <div class="recruitment">
-    <van-nav-bar class="job" @click-left="onClickLeft">
+    <!-- <van-nav-bar class="job" @click-left="onClickLeft">
       <van-icon color="#000" slot="left" name="arrow-left" />
-    </van-nav-bar>
+    </van-nav-bar> -->
+    
+    <!-- 导航栏 -->
+    <van-nav-bar
+      class="page-nav-bar"
+      left-arrow
+      @click-left="$router.back()"
+    />
     <div class="head">
       <div class="flex">
         <span class="biaoti">{{ recruitmentMess }}</span>

@@ -12,88 +12,83 @@ const routes = [
   },
   {
     path: '/jobseeker',
-    name:'jobseeker',
+    name: 'jobseeker',
     component: () => import('../views/home/issue/jobseeker.vue'),
   },
   {
-    path:'/particulars',
-    name:"particulars",
-    component:()=>import('../views/home/particulars/index.vue'),
+    path: '/particulars',
+    name: "particulars",
+    component: () => import('../views/home/particulars/index.vue'),
   },
   {
     path: '/recruitment',
-    name:'recruitment',
+    name: 'recruitment',
     component: () => import('../views/home/issue/recruitment.vue'),
   },
   {
-    path:'/picture0',
-    name:'picture0',
-    component:()=>import('../views/picture/picture0.vue')
+    path: '/picture0',
+    name: 'picture0',
+    component: () => import('../views/picture/picture0.vue')
   },
   {
-    path:'/picture1',
-    name:'picture1',
-    component:()=>import('../views/picture/picture1.vue')
+    path: '/picture1',
+    name: 'picture1',
+    component: () => import('../views/picture/picture1.vue')
   },
   {
-    path:'/picture2',
-    name:'picture2',
-    component:()=>import('../views/picture/picture2.vue')
+    path: '/picture2',
+    name: 'picture2',
+    component: () => import('../views/picture/picture2.vue')
   },
   {
-    path:'/service',
-    name:'service',
-    component:()=>import('../views/service/index.vue')
+    path: '/service',
+    name: 'service',
+    component: () => import('../views/service/index.vue')
   },
   {
-    path:'/complaint',
-    name:'complaint',
-    component:()=>import('../views/service/complaint.vue')
+    path: '/complaint',
+    name: 'complaint',
+    component: () => import('../views/service/complaint.vue')
   },
   {
-    path:'/location',
-    name:'location',
-    component:()=>import('../views/location/index.vue')
+    path: '/location',
+    name: 'location',
+    component: () => import('../views/location/index.vue')
   },
   {
-    path:'/wodeqianbao',
-    name:'wodeqianbao',
-    component:()=>import('../views/my/wodeqianbao')
+    path: '/wodeqianbao',
+    name: 'wodeqianbao',
+    component: () => import('../views/my/wodeqianbao')
   },
   {
-    path:'/shimingrenzheng',
-    name:'shimingrenzheng',
-    component:()=>import('../views/my/shimingrenzheng')
+    path: '/shimingrenzheng',
+    name: 'shimingrenzheng',
+    component: () => import('../views/my/shimingrenzheng')
   },
   {
-    path:'/guanyuwomen',
-    name:'guanyuwomen',
-    component:()=>import('../views/my/guanyuwomen')
+    path: '/guanyuwomen',
+    name: 'guanyuwomen',
+    component: () => import('../views/my/guanyuwomen')
   },
   {
-    path:'/chakangengduo',
-    name:'chakangengduo',
-    component:()=>import('../views/my/chakangengduo')
+    path: '/chongzhi',
+    name: 'chongzhi',
+    component: () => import('../views/my/wodeqianbao/chongzhi/index')
   },
   {
-    path:'/chongzhi',
-    name:'chongzhi',
-    component:()=>import('../views/my/wodeqianbao/chongzhi/index')
+    path: '/jilv',
+    name: 'jilv',
+    component: () => import('../views/my/wodeqianbao/jilv/index')
   },
   {
-    path:'/jilv',
-    name:'jilv',
-    component:()=>import('../views/my/wodeqianbao/jilv/index')
+    path: '/zhangdan',
+    name: 'zhangdan',
+    component: () => import('../views/my/wodeqianbao/zhangdan/index')
   },
   {
-    path:'/zhangdan',
-    name:'zhangdan',
-    component:()=>import('../views/my/wodeqianbao/zhangdan/index')
-  },
-  {
-    path:'/xianyi',
-    name:'xianyi',
-    component:()=>import('../views/login/xianyi/index')
+    path: '/xianyi',
+    name: 'xianyi',
+    component: () => import('../views/login/xianyi/index')
   },
   {
     path: '/user-for',
@@ -101,17 +96,22 @@ const routes = [
     component: () => import('@/views/user-for')
   },
   {
-    path:'/look',
-    name:'look',
-    meta:{
-      tx:1,
-    },
-    component:()=>import('../views/look/index.vue')
+    path: '/dingdan/:id',
+    name: 'dingdan',
+    component: () => import('@/views/dingdan')
   },
   {
-    path:'/searCh',
-    name:'searCh',
-    component:()=>import('../views/home/search.vue')
+    path: '/look',
+    name: 'look',
+    meta: {
+      tx: 1,
+    },
+    component: () => import('../views/look/index.vue')
+  },
+  {
+    path: '/searCh',
+    name: 'searCh',
+    component: () => import('../views/home/search.vue')
   },
   {
     path: '/',
@@ -121,8 +121,8 @@ const routes = [
       {
         path: '', // 默认子路由，只能有1个
         name: 'home',
-        meta:{
-          tx:2,
+        meta: {
+          tx: 2,
         },
         component: () => import('@/views/home')
       },
