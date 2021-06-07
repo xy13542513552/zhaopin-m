@@ -115,6 +115,7 @@
 <script>
 import { Toast } from 'vant';
 import JobList from '../../components/jobList'
+import { getHomeList } from '@/api/user'
 export default {
   name: "HomeIndex",
   data () {
@@ -172,6 +173,7 @@ export default {
         this.sticky_top = this.$refs.serchDom.offsetHeight
       })();
     }
+    this.getList()
   },
 
   methods: {
@@ -234,6 +236,14 @@ export default {
         }
       }, 500);
     },
+    async getList () {
+      try {
+        const { listdata } = await getHomeList()
+        console.log(getHomeList())
+      } catch (err) {
+        this.$toast('获取数据失败，请稍后重试')
+      }
+    },
   }
 };
 </script>
@@ -271,19 +281,9 @@ export default {
     }
   }
   .picture_padding {
-    // padding: 16px 16px 0;
-    // width: 100%;
-    // background-image: url('../../images/ditu.png');
-    // background-repeat: no-repeat;
-    // background-size: cover;
     .picture {
-      // width: 100%;
-      // border-radius: 30px;
-      // overflow: hidden;
       .picture_item {
         background: red;
-        // border-radius: 30px;
-        // overflow: hidden;
         .picture_img {
           width: 100%;
           height: 400px;
